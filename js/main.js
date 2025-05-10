@@ -62,4 +62,24 @@ function showTab(tabId) {
   
   // クリックされたボタンに active クラスを追加
   event.currentTarget.classList.add('active');
-} 
+}
+
+// バーガーメニューの制御
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-menu a');
+
+  menuToggle.addEventListener('click', function() {
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // メニューリンクをクリックしたときにメニューを閉じる
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+}); 
