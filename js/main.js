@@ -34,13 +34,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ヘッダーのスクロール効果
+let lastScrollTop = 0;
+const header = document.querySelector('header');
+const headerHeight = header.offsetHeight;
+
 window.addEventListener('scroll', function() {
-  const header = document.querySelector('header');
-  if (window.scrollY > 50) {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // スクロール位置に応じてヘッダーの背景色を変更
+  if (scrollTop > 50) {
     header.style.backgroundColor = 'rgba(22, 22, 26, 0.95)';
   } else {
     header.style.backgroundColor = 'rgba(22, 22, 26, 0.9)';
   }
+
+  // スクロール方向を判定してヘッダーの表示/非表示を制御
+  if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+    // 下スクロール時はヘッダーを非表示
+    header.style.transform = 'translateY(-100%)';
+  } else {
+    // 上スクロール時はヘッダーを表示
+    header.style.transform = 'translateY(0)';
+  }
+  
+  lastScrollTop = scrollTop;
 });
 
 // タブ切り替え機能
