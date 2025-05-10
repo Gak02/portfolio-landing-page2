@@ -78,6 +78,7 @@ header {
   z-index: 1000;
   background-color: rgba(22, 22, 26, 0.9);
   backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .header-content {
@@ -150,7 +151,7 @@ header {
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 80px;
+  padding-top: 160px;
   background: linear-gradient(rgba(22, 22, 26, 0.7), rgba(22, 22, 26, 0.9)), url('../images/hero-banner.png') center/cover no-repeat;
 }
 
@@ -158,17 +159,19 @@ header {
   position: relative;
   z-index: 2;
   max-width: 800px;
+  padding: 40px 0;
 }
 
 .hero-date {
   display: inline-block;
   background-color: #7f5af0;
   color: #fffffe;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 30px;
   margin-bottom: 30px;
   font-weight: 600;
   letter-spacing: 1px;
+  font-size: 1.1rem;
 }
 
 .hero-title {
@@ -669,8 +672,27 @@ footer {
     color: #fffffe;
   }
   
+  .hero {
+    padding-top: 140px;
+    min-height: calc(100vh - 60px);
+  }
+  
+  .hero-content {
+    padding: 30px 0;
+  }
+  
+  .hero-date {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  
   .hero-title {
     font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
   }
   
   .countdown {
